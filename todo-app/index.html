@@ -1,0 +1,54 @@
+<!doctype html>
+<!--
+このファイルは PyScript デモの TODO App (https://pyscript.net/examples/todo.html)
+とほぼ同じでコードを自分にわかりやすいよう最小限にしたものです
+自分の改変部分について万全を期しません
+-->
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TODOリスト</title>
+<style type="text/css">
+<!--
+body {
+  font-family: "Hiragino Sans W3", "Hiragino Kaku Gothic ProN",
+    "ヒラギノ角ゴ ProN W3", "メイリオ", Meiryo, sans-serif;
+  font-size: 16px; letter-spacing: 1px; margin: 15px;
+}
+input[type="text"], button {
+  -webkit-appearance: none; appearance: none; font-family: inherit;
+  padding: 5px 10px; font-size: 16px; letter-spacing: 1px;
+}
+.line-through {
+  text-decoration: line-through;
+}
+-->
+</style>
+<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+<a href="../index.html" style="font-size: 12px">1階層上のページに戻る（参考文献等はこちら）</a>
+<h1>TODOリスト</h1>
+<py-script src="./funcs.py"></py-script>
+
+<!-- 新規タスク入力欄 -->
+<input id="new-task-content" type="text"/>
+<button py-click="add_task()">追加</button>
+<button py-click="remove_all()">全リセット</button>
+
+<!-- タスク表示箇所 -->
+<div id="list-tasks-container" style="margin-top: 10px;"></div>
+
+<!-- タスクのテンプレート -->
+<template id="task-template">
+  <section class="task">
+    <label style="display: inline;">
+      <input type="checkbox"/>
+      <p style="display: inline;"></p>
+    </label>
+  </section>
+</template>
+
+</body>
+</html>
